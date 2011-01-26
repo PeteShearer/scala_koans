@@ -5,6 +5,7 @@ scalakoansexercises.iws
 scalakoansexercises.ipr
 scalakoansexercises.iml
 target
+.*\.class
 .*\.DS_Store
 .*\.zip
 scala-koans.iml
