@@ -189,4 +189,12 @@ package atreides {
   }
 }
 
-class AboutAccessModifiers extends KoanSuite with ShouldMatchers { }
+class AboutAccessModifiers extends KoanSuite with ShouldMatchers {
+  override def nestedSuites = List(
+    new org.functionalkoans.forscala.harkonnen.AlphaBase,
+    new org.functionalkoans.forscala.harkonnen.BetaBase,
+    new org.functionalkoans.forscala.harkonnen.GammaBase,
+    new org.functionalkoans.forscala.atreides.DeltaBase,
+    new org.functionalkoans.forscala.atreides.EpsilonBase
+  )
+}
