@@ -9,6 +9,7 @@ class AboutTuples extends KoanSuite with ShouldMatchers {
 
   koan ("Tuples can be created easily") {
     val tuple = ("apple", "dog")
+
     tuple should be (__)
   }
 
@@ -30,7 +31,4 @@ class AboutTuples extends KoanSuite with ShouldMatchers {
     tuple5._4.before(new Date()) should be (__)
     tuple5._5 should be (__)
   }
-
-  
-
 }

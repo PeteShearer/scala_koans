@@ -8,7 +8,8 @@ class AboutImportsAndPackages extends KoanSuite with ShouldMatchers {
   koan("An import can be placed in a method, hint this koan is a method") {
     import scala.collection.mutable.ArrayBuffer
     val arrayBuffer = ArrayBuffer.range(2, 10)
-      arrayBuffer(0) should be(__)
+
+    arrayBuffer(0) should be(__)
     arrayBuffer(1) should be(__)
   }
 }
@@ -18,10 +19,10 @@ class Artist(val firstName: String, val lastName: String)
 package subpackage {
   class AboutImportsAndPackagesInSubpackages extends KoanSuite with ShouldMatchers {
     koan("A package can be included in a file with an established established package, " +
-      "and can encapsulate it's contents with a {} block")
-    {
+      "and can encapsulate it's contents with a {} block") {
+
       val luther = new Artist("Luther", "Vandross")
-        luther.lastName should be(__)
+      luther.lastName should be(__)
     }
   }
 }
@@ -36,24 +37,24 @@ package media {
     koan("A import can be done based from absolute package heirarchy")  {
       val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
       stLouisBlues.getClass.getCanonicalName should be (__)
+    }
   }
-}
 
-class AboutReferencingAbsoluteRootPackages extends KoanSuite with ShouldMatchers {
-  import _root_.org.functionalkoans.forscala.album.Album  // <<< Note the import style
-  koan("A import can be done based from absolute root package heirarchy using _root_")  {
-    val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
-    stLouisBlues.getClass.getCanonicalName should be (__)
+  class AboutReferencingAbsoluteRootPackages extends KoanSuite with ShouldMatchers {
+    import _root_.org.functionalkoans.forscala.album.Album  // <<< Note the import style
+    koan("A import can be done based from absolute root package heirarchy using _root_")  {
+      val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
+      stLouisBlues.getClass.getCanonicalName should be (__)
+    }
   }
-}
 
-class AboutReferencingRelativePackages extends KoanSuite with ShouldMatchers {
-     import album.Album  // <<< Note the import style
-     koan("A import can be done based from relative packaging")  {
-       val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
-       stLouisBlues.getClass.getCanonicalName should be (__)
-     }
-   }
+  class AboutReferencingRelativePackages extends KoanSuite with ShouldMatchers {
+    import album.Album  // <<< Note the import style
+    koan("A import can be done based from relative packaging")  {
+      val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
+      stLouisBlues.getClass.getCanonicalName should be (__)
+    }
+  }
 }
 
 package music_additions {
@@ -126,6 +127,7 @@ class AboutImportingTechniques extends KoanSuite with ShouldMatchers {
   koan("You can just import the package themselves,so you can give it a verbose identity")  {
     import scala.collection.mutable
     val arrayBuffer = mutable.ArrayBuffer.range(2, 10)  //sounds better: A Mutable ArrayBuffer
+
     arrayBuffer(0) should be(__)
     arrayBuffer(1) should be(__)
   }
@@ -133,8 +135,8 @@ class AboutImportingTechniques extends KoanSuite with ShouldMatchers {
   koan("You can just import the package themselves, and give it an alias!")  {
     import scala.collection.{mutable => changeable}
     val arrayBuffer = changeable.ArrayBuffer.range(2, 10)
+
     arrayBuffer(0) should be(__)
     arrayBuffer(1) should be(__)
   }
 }
-

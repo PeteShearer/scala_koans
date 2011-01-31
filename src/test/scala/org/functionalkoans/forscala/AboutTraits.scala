@@ -5,11 +5,14 @@ import support.KoanSuite
 import support.BlankValues._
 
 class AboutTraits extends KoanSuite with ShouldMatchers {
+
   koan("A class uses the extends keyword to mixin a trait if it is the only relationship the class inherits") {
     case class Event(name: String, source: Any)
+
     trait EventListener {
       def listen(event: Event): Unit
     }
+
     class MyListener extends EventListener {
       def listen(event: Event) {
         event match {
@@ -25,7 +28,6 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
   }
 
   koan("A class can only extend from one class or trait, any subsequent extension should use the keyword \'with\'") {
-
     case class Event(name: String, source: Any)
 
     trait EventListener {
@@ -50,9 +52,11 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
 
   koan("Traits are polymorphic. Any type can be referred to by another type if related by extension") {
     case class Event(name: String, source: Any)
+
     trait EventListener {
       def listen(event: Event): Unit
     }
+
     class MyListener extends EventListener {
       def listen(event: Event) {
         event match {
@@ -95,7 +99,6 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
 
     val welder = new Welder
     welder.weld
-
 
     val baker = new Baker
     baker.bake
@@ -184,7 +187,6 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
 
     sb.mkString(";") should be(__)
   }
-
 
   koan("The diamond of death (http://en.wikipedia.org/wiki/Diamond_problem) is avoided since " +
           "instantiations are tracked and will not allow multiple instantiations") {

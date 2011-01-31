@@ -24,8 +24,6 @@ package harkonnen {
     protected[harkonnen] val thyme = 13
   }
 
-
-
   class BetaBase extends AlphaBase with KoanSuite with ShouldMatchers {
     val param: AlphaBase = new AlphaBase
 
@@ -67,7 +65,6 @@ package harkonnen {
   }
 
   class GammaBase extends KoanSuite with ShouldMatchers {
-
     val param: AlphaBase = new AlphaBase
 
     koan("With private keywords: No members can be accessed via inheritance") {
@@ -106,11 +103,9 @@ package harkonnen {
       param.thyme should be(__)
     }
   }
-
 }
 
 package atreides {
-
   import org.functionalkoans.forscala.harkonnen.AlphaBase
 
   class DeltaBase extends AlphaBase with KoanSuite with ShouldMatchers {
@@ -194,6 +189,4 @@ package atreides {
   }
 }
 
-class AboutAccessModifiers extends KoanSuite with ShouldMatchers {
-
-}
+class AboutAccessModifiers extends KoanSuite with ShouldMatchers { }

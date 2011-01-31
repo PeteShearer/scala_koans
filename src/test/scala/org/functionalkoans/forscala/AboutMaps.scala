@@ -7,32 +7,28 @@ class AboutMaps extends KoanSuite with ShouldMatchers {
 
   koan("Maps can be created easily") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
+
     myMap.size should be(__)
   }
 
   koan("Maps contain distinct pairings") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "MI" -> "Michigan")
+
     myMap.size should be(__)
-
-
   }
 
   koan("Maps can be added to easily") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "MI" -> "Michigan")
-
     val aNewMap = myMap + ("IL" -> "Illinois")
 
     aNewMap.contains("IL") should be(__)
-
   }
 
   koan("Map values can be iterated") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "MI" -> "Michigan")
-
     val mapValues = myMap.values
 
     mapValues.size should be(__)
-
     mapValues.head should be(__)
 
     val lastElement = mapValues.last
@@ -46,16 +42,15 @@ class AboutMaps extends KoanSuite with ShouldMatchers {
 
   koan("Maps insertion with duplicate key updates previous entry with subsequent value") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "MI" -> "Meechigan")
-
     val mapValues = myMap.values
 
     mapValues.size should be(__)
-
     myMap("MI") should be(__)
   }
 
   koan("Map keys may be of mixed type") {
     val myMap = Map("Ann Arbor" -> "MI", 49931 -> "MI")
+
     myMap("Ann Arbor") should be(__)
     myMap(49931) should be(__)
   }
@@ -69,12 +64,12 @@ class AboutMaps extends KoanSuite with ShouldMatchers {
     myMap("Ann Arbor") should be((__, __, __))
 
     // what happens if you change the Any to Int
-
   }
 
 
   koan("Maps may be accessed") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
+
     myMap("MI") should be(__)
     myMap("IA") should be(__)
   }
@@ -82,24 +77,20 @@ class AboutMaps extends KoanSuite with ShouldMatchers {
   koan("Map elements can be removed easily") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
     val aNewMap = myMap - "MI"
+
     aNewMap.contains("MI") should be(__)
   }
 
   koan("Accessing a map by key results in an exception if key is not found") {
-
     val myMap = Map("OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
 
-
     intercept[NoSuchElementException] {
-
       myMap("MI") should be(__)
     }
   }
 
   koan("Map elements can be removed in multiple") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
-
-
     val aNewMap = myMap -- List("MI", "OH")
 
     aNewMap.contains("MI") should be(__)
@@ -125,12 +116,9 @@ class AboutMaps extends KoanSuite with ShouldMatchers {
   }
 
   koan("Map equivalency is independent of order") {
-
     val myMap1 = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
     val myMap2 = Map("WI" -> "Wisconsin", "MI" -> "Michigan", "IA" -> "Iowa", "OH" -> "Ohio")
 
     myMap1.equals(myMap2) should be(__)
   }
-
-
 }

@@ -5,6 +5,7 @@ import support.KoanSuite
 import support.BlankValues._
 
 class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
+
   koan("In Java you declare a generic type within a <>, in Scala it is []") {
     val z: List[String] = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" :: Nil
   }
@@ -37,6 +38,7 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
 
   koan("Class meta-information can be derived from an object reference using getClass()") {
     val zoom = "zoom"
+
     zoom.getClass should be(__)  // Hint: classOf ...
     zoom.getClass.getCanonicalName() should be(__)
     zoom.getClass.getSimpleName() should be(__)
@@ -100,8 +102,4 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
     null.asInstanceOf[Int] should be(__)
     null.asInstanceOf[Short] should be(__)
   }
-
-
-
-
 }

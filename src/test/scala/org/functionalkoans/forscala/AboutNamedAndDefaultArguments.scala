@@ -16,28 +16,6 @@ class AboutNamedAndDefaultArguments() extends KoanSuite with ShouldMatchers {
     }
   }
 
-  class WithClassParameters(val defaultRed: Int, val defaultGreen: Int, val defaultBlue: Int) {
-    def addColors(red: Int, green: Int, blue: Int) = {
-      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
-    }
-
-    def addColorsWithDefaults(red: Int = 0, green: Int = 0, blue: Int = 0) = {
-      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
-    }
-  }
-
-  class WithClassParametersInClassDefinition(val defaultRed: Int = 0, val defaultGreen: Int = 255,
-                                             val defaultBlue: Int = 100) {
-    def addColors(red: Int, green: Int, blue: Int) = {
-      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
-    }
-
-    def addColorsWithDefaults(red: Int = 0, green: Int = 0, blue: Int = 0) = {
-      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
-    }
-  }
-
-
   koan("can specify arguments in any order if you use their names") {
     val me = new WithoutClassParameters()
 
@@ -55,6 +33,19 @@ class AboutNamedAndDefaultArguments() extends KoanSuite with ShouldMatchers {
     myColor should equal(__, __, __)
   }
 
+
+  // ---------------------------------------------
+
+  class WithClassParameters(val defaultRed: Int, val defaultGreen: Int, val defaultBlue: Int) {
+    def addColors(red: Int, green: Int, blue: Int) = {
+      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
+    }
+
+    def addColorsWithDefaults(red: Int = 0, green: Int = 0, blue: Int = 0) = {
+      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
+    }
+  }
+
   koan("can access class parameters and specify arguments in any order if you use their names") {
     val me = new WithClassParameters(40, 50, 60)
     val myColor = me.addColors(green = 50, red = 60, blue = 40)
@@ -67,6 +58,20 @@ class AboutNamedAndDefaultArguments() extends KoanSuite with ShouldMatchers {
     val myColor = me.addColorsWithDefaults(green = 70)
 
     myColor should equal(__, __, __)
+  }
+
+
+  // ---------------------------------------------
+
+  class WithClassParametersInClassDefinition(val defaultRed: Int = 0, val defaultGreen: Int = 255,
+                                             val defaultBlue: Int = 100) {
+    def addColors(red: Int, green: Int, blue: Int) = {
+      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
+    }
+
+    def addColorsWithDefaults(red: Int = 0, green: Int = 0, blue: Int = 0) = {
+      (red + defaultRed, green + defaultGreen, blue + defaultBlue)
+    }
   }
 
   koan("can default class parameters and have default arguments too") {

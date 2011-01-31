@@ -50,6 +50,7 @@ class AboutCaseClasses extends KoanSuite with ShouldMatchers {
   koan("Case classes have a convenient toString method defined") {
     case class Dog(name: String, breed: String)
     val d1 = Dog("Scooby", "Doberman")
+
     d1.toString should be (__)
   }
 
@@ -57,6 +58,7 @@ class AboutCaseClasses extends KoanSuite with ShouldMatchers {
     case class Dog(name: String, breed: String)
 
     val d1 = Dog("Scooby", "Doberman")
+
     d1.name should be (__)
     d1.breed should be (__)
 

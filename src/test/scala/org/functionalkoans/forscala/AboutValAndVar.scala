@@ -21,7 +21,4 @@ class AboutValAndVar extends KoanSuite with ShouldMatchers {
     // a = 7
     // a should be (7)
   }
-
-  
-  
 }
